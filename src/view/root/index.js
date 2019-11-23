@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Menu from "../../components/menu";
+import Antipasti from "../antipasti";
 
 function Root() {
     return (
@@ -13,7 +14,7 @@ function Root() {
                     <div>Home</div>
                 </Route>
                 <Route path="/antipasti">
-                    <div>Antipasti</div>
+                    <Antipasti />
                 </Route>
             </Switch>
         </BrowserRouter>

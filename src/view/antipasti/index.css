@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.category-container {
+    flex-shrink: 0;
+}
+
+.item-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item-container > span {
+    display: block;
+    width: 25%;
+}
+
+.quantity-input {
+    width: 25px;
+}
