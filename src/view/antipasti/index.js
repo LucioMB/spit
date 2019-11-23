@@ -3,7 +3,18 @@ import React from "react";
 import "./index.css";
 import FoodItem from "../../components/food-item";
 
+const food = {
+    affettati: [
+        { name: "salame", price: 8 },
+        { name: "prosciutto", price: 9 },
+        { name: "coppa", price: 123456 }
+    ]
+};
+
 function Antipasti() {
+    // currentCategory
+    // food[currentCategory]
+
     return (
         <div class="container">
             <div
@@ -23,17 +34,9 @@ function Antipasti() {
                 <label for="vegani">Vegani</label>
             </div>
             <div class="item-container">
-                <FoodItem name="salame" price="8,00" />
-                <FoodItem name="vvvv" price="18,00" />
-                <FoodItem name="salame" price="8,00" />
-                <FoodItem name="salame" price="8,00" />
-                <FoodItem name="salame" price="8,00" />
-                <FoodItem name="salame" price="8,00" />
-                <FoodItem name="salame" price="8,00" />
-                <FoodItem name="salame" price="8,00" />
-                <FoodItem name="salame" price="8,00" />
-                <FoodItem name="salame" price="8,00" />
-                <FoodItem name="salame" price="8,00" />
+                {food["affettati"].map(item => (
+                    <FoodItem name={item.name} price={item.price} />
+                ))}
             </div>
         </div>
     );
