@@ -2,19 +2,27 @@ import React from "react";
 import { shallow } from "enzyme";
 
 import Show from "./index";
+import food from "./food";
+
+jest.mock("./food", () => ({
+    affettati: [
+        { name: "aa", price: 10 },
+        { name: "bb", price: 1231 },
+        { name: "fdsadafsfdasfdsa", price: 648584846684 }
+    ]
+}));
 
 describe("Show", () => {
     it("should displays 3 FoodItem for category affettati", () => {
         const cmp = shallow(<Show currentCategory="affettati" />);
 
         const foodItems = cmp.find("FoodItem");
-        expect(foodItems).toHaveLength(3);
-        expect(foodItems.get(0).props.name).toEqual("salame");
-        expect(foodItems.get(0).props.price).toEqual(8);
-        expect(foodItems.get(1).props.name).toEqual("prosciutto");
-        expect(foodItems.get(1).props.price).toEqual(9);
-        expect(foodItems.get(2).props.name).toEqual("coppa");
-        expect(foodItems.get(2).props.price).toEqual(123456);
+        expect(foodItems).toHaveLength(food.affettati.length);
+
+        food.affettati.forEach(({ name, price }, index) => {
+            expect(foodItems.get(index).props.name).toEqual(name);
+            expect(foodItems.get(index).props.price).toEqual(price);
+        });
     });
 
     it.each`
