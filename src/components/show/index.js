@@ -15,11 +15,11 @@ const food = {
 };
 
 function Show({ currentCategory }) {
-    return currentCategory
-        ? food[currentCategory].map(item => (
-              <FoodItem name={item.name} price={item.price} />
-          ))
-        : null;
+    const category = food[currentCategory] || [];
+
+    return category.map(item => (
+        <FoodItem name={item.name} price={item.price} />
+    ));
 }
 
 Show.propTypes = {
