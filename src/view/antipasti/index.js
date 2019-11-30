@@ -1,19 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./index.css";
-import FoodItem from "../../components/food-item";
-
-const food = {
-    affettati: [
-        { name: "salame", price: 8 },
-        { name: "prosciutto", price: 9 },
-        { name: "coppa", price: 123456 }
-    ]
-};
+import Show from "../../components/show";
 
 function Antipasti() {
-    // currentCategory
-    // food[currentCategory]
+    const [currentCategory, setCurrentCategory] = useState();
 
     return (
         <div class="container">
@@ -21,22 +12,40 @@ function Antipasti() {
                 class="category-container
             "
             >
-                <input type="radio" id="affettati" name="Antipasti" />
+                <input
+                    type="radio"
+                    id="affettati"
+                    name="Antipasti"
+                    onClick={() => setCurrentCategory("affettati")}
+                />
                 <label for="affettati">Affettati</label>
                 <br />
-                <input type="radio" id="mare" name="Antipasti" />
+                <input
+                    type="radio"
+                    id="mare"
+                    name="Antipasti"
+                    onClick={() => setCurrentCategory("mare")}
+                />
                 <label for="mare">Mare</label>
                 <br />
-                <input type="radio" id="verdure" name="Antipasti" />
+                <input
+                    type="radio"
+                    id="verdure"
+                    name="Antipasti"
+                    onClick={() => setCurrentCategory("verdure")}
+                />
                 <label for="verdure">Verdure</label>
                 <br />
-                <input type="radio" id="vegani" name="Antipasti" />
+                <input
+                    type="radio"
+                    id="vegani"
+                    name="Antipasti"
+                    onClick={() => setCurrentCategory("vegani")}
+                />
                 <label for="vegani">Vegani</label>
             </div>
             <div class="item-container">
-                {food["affettati"].map(item => (
-                    <FoodItem name={item.name} price={item.price} />
-                ))}
+                <Show currentCategory={currentCategory} />
             </div>
         </div>
     );
