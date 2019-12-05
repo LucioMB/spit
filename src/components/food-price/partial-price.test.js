@@ -16,7 +16,7 @@ jest.mock("../show/food.js", () => ({
 
 describe ("PartialPrice", () => {
     it("should displays a partial price for change quantity in Counter", () => {
-       const cmp = shallow(<PartialPrice currentPartialPrice = price * quantity />);
+       const cmp = shallow(<PartialPrice currentPartialPrice = {(price * quantity)} />);
 
        const foodItem = cmp.find("FoodItem");
        expect(foodItem).toHaveNumber(food.affettati.Number);
